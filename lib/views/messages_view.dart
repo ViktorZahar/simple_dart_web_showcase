@@ -1,27 +1,30 @@
-import 'package:simple_dart_web_views/views.dart';
-import 'package:simple_dart_web_widgets/widgets.dart';
+import 'package:simple_dart_web_views/view.dart';
+import 'package:simple_dart_web_widgets/buttons.dart';
+import 'package:simple_dart_web_widgets/hv_panel.dart';
+import 'package:simple_dart_web_widgets/labels/simple_label.dart';
+
+import '../showcase_app.dart';
 
 class MessagesView extends View {
   MessagesView() {
-    dartClassName('MessagesView');
     fullSize();
     fillContent();
-    setPadding(10);
-    vertical();
-    setSpaceBetweenItems(10);
+    padding = '10px';
+    vertical = true;
+    stride = '10px';
     addAll([
       HVPanel()
-        ..vertical()
+        ..vertical = true
         ..width = '300px'
-        ..setSpaceBetweenItems(10)
+        ..stride = '10px'
         ..addAll([
           SimpleLabel()..caption = 'Messages',
           SimpleButton()
             ..caption = 'Show error'
-            ..onClick((event) => mainWindow.showError('error')),
+            ..onClick.listen((event) => mainWindow.showError('error')),
           SimpleButton()
             ..caption = 'Show fatal error'
-            ..onClick((event) => mainWindow.showFatalError('error'))
+            ..onClick.listen((event) => mainWindow.showFatalError('error'))
         ]),
     ]);
   }

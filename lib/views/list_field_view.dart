@@ -1,23 +1,23 @@
-import 'package:simple_dart_web_views/views.dart';
-import 'package:simple_dart_web_widgets/widgets.dart';
+import 'package:simple_dart_web_views/view.dart';
+import 'package:simple_dart_web_widgets/fields/list_field.dart';
+import 'package:simple_dart_web_widgets/hv_panel.dart';
+import 'package:simple_dart_web_widgets/labels/simple_label.dart';
 
 class ListFieldView extends View {
   ListFieldView() {
-    dartClassName('ListFieldView');
     fullSize();
     fillContent();
-    setPadding(10);
-    vertical();
-    setSpaceBetweenItems(10);
+    padding = '10px';
+    vertical = true;
+    stride = '10px';
     addAll([
       HVPanel()
-        ..vertical()
-        ..setSpaceBetweenItems(5)
+        ..vertical = true
+        ..stride = '5px'
         ..width = '300px'
         ..addAll([
           SimpleLabel()..caption = 'Simple',
           ListField()
-            ..removeButtonSize = 20
             ..value = [
               'Option 1',
               'Option 2',
@@ -27,8 +27,8 @@ class ListFieldView extends View {
             ]
         ]),
       HVPanel()
-        ..vertical()
-        ..setSpaceBetweenItems(5)
+        ..vertical = true
+        ..stride = '5px'
         ..width = '300px'
         ..addAll([
           SimpleLabel()..caption = 'Disabled',
@@ -46,7 +46,7 @@ class ListFieldView extends View {
   }
 
   static const String id = 'list_field';
-  static const String caption = 'List filed';
+  static const String caption = 'ListFiled';
 
   @override
   String getCaption() => caption;

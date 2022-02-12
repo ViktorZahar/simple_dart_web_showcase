@@ -1,30 +1,30 @@
-import 'package:simple_dart_web_views/views.dart';
-import 'package:simple_dart_web_widgets/widgets.dart';
+import 'package:simple_dart_web_views/view.dart';
+import 'package:simple_dart_web_widgets/hv_panel.dart';
+import 'package:simple_dart_web_widgets/tables/simple_table.dart';
 
 class TableView extends View {
   TableView() {
-    dartClassName('TableView');
     fullSize();
     fillContent();
-    setPadding(10);
-    vertical();
+    padding = '10px';
+    vertical = true;
     fillContent();
     fullSize();
-    setSpaceBetweenItems(10);
+    stride = '10px';
     final simpleTable = createSimpleTable();
     final multiRowTable = createMultirowTable();
     addAll([
       HVPanel()
         ..fillContent()
         ..fullSize()
-        ..vertical()
-        ..setSpaceBetweenItems(5)
+        ..vertical = true
+        ..stride = '5px'
         ..addAll([simpleTable, multiRowTable]),
     ]);
   }
 
-  static const String id = 'table';
-  static const String caption = 'Tables';
+  static const String id = 'simple_table';
+  static const String caption = 'SimpleTable';
 
   @override
   String getCaption() => caption;

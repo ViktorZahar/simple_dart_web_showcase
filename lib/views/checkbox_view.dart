@@ -1,25 +1,26 @@
-import 'package:simple_dart_web_views/views.dart';
-import 'package:simple_dart_web_widgets/widgets.dart';
+import 'package:simple_dart_web_views/view.dart';
+import 'package:simple_dart_web_widgets/fields/checkbox_field.dart';
 
 class CheckboxView extends View {
   CheckboxView() {
-    dartClassName('CheckboxView');
     fullSize();
     fillContent();
-    setPadding(1);
-    vertical();
-    setSpaceBetweenItems(1);
+    padding = '1px';
+    stride = '1px';
+    vertical = true;
     addAll([
-      CheckboxField()..caption = 'Option 1',
+      CheckboxField()
+        ..caption = 'Option 1'
+        ..value = true,
       CheckboxField()..caption = 'Option 2',
       CheckboxField()
-        ..caption = 'disabled'
+        ..caption = 'Disabled'
         ..disabled = true,
     ]);
   }
 
   static const String id = 'checkbox';
-  static const String caption = 'Checkbox';
+  static const String caption = 'CheckboxField';
 
   @override
   String getCaption() => caption;

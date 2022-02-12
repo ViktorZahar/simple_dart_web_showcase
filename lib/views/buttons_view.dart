@@ -1,28 +1,23 @@
-import 'package:simple_dart_web_views/views.dart';
-import 'package:simple_dart_web_widgets/widgets.dart';
+import 'package:simple_dart_web_views/view.dart';
+import 'package:simple_dart_web_widgets/buttons.dart';
+import 'package:simple_dart_web_widgets/hv_panel.dart';
 
 class ButtonsView extends View {
   ButtonsView() {
-    dartClassName('ButtonsView');
     fullSize();
     fillContent();
-    setPadding(1);
-    vertical();
-    setSpaceBetweenItems(1);
+    padding = '1px';
+    vertical = true;
+    stride = '1px';
     addAll([
       HVPanel()
-        ..vertical()
-        ..setPadding(10)
-        ..setSpaceBetweenItems(5)
+        ..vertical = true
+        ..padding = '10px'
+        ..stride = '5px'
         ..width = '300px'
         ..addAll([
-          SimpleButton()..caption = 'Simple button',
           SimpleButton()
-            ..caption = 'Warning button'
-            ..type = SimpleButtonType.warning,
-          SimpleButton()
-            ..caption = 'Disabled'
-            ..enabled = false,
+            ..caption = 'Simple button',
         ]),
     ]);
   }

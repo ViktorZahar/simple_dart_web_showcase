@@ -1,23 +1,27 @@
-import 'package:simple_dart_web_views/views.dart';
-import 'package:simple_dart_web_widgets/widgets.dart';
+import 'package:simple_dart_web_views/view.dart';
+import 'package:simple_dart_web_widgets/abstract_component.dart';
+import 'package:simple_dart_web_widgets/buttons.dart';
+import 'package:simple_dart_web_widgets/dialogs.dart';
+import 'package:simple_dart_web_widgets/fields/text_field.dart';
+import 'package:simple_dart_web_widgets/hv_panel.dart';
+import 'package:simple_dart_web_widgets/labels/simple_label.dart';
 
 class DialogView extends View {
   DialogView() {
-    dartClassName('DialogView');
     fullSize();
     fillContent();
-    setPadding(10);
-    vertical();
-    setSpaceBetweenItems(10);
+    padding = '10px';
+    vertical = true;
+    stride = '10px';
     addAll([
       HVPanel()
-        ..vertical()
+        ..vertical = true
         ..width = '300px'
-        ..setSpaceBetweenItems(10)
+        ..stride = '10px'
         ..addAll([
           SimpleButton()
             ..caption = 'Open dialog'
-            ..onClick((event) {
+            ..onClick.listen((event) {
               final dialog = DialogExample();
               dialog.showDialog();
             }),
@@ -37,22 +41,22 @@ class DialogView extends View {
 
 class DialogExample extends DialogWindow<String> {
   DialogExample() {
-    onCloseListener = () {
+    onClose.listen((event) {
       completer!.complete(inputField.value);
-    };
+    });
   }
 
   @override
-  String caption() => 'Dialog example';
+  String caption() => 'DialogWindow';
 
   final inputField = TextField();
 
   @override
   Component createDialogContent() {
     final ret = HVPanel()
-      ..vertical()
-      ..setSpaceBetweenItems(5)
-      ..setPadding(5)
+      ..vertical = true
+      ..stride = '5px'
+      ..padding = '5px'
       ..addAll([SimpleLabel()..caption = 'Input value', inputField]);
 
     return ret;

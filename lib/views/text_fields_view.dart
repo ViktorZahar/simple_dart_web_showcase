@@ -1,46 +1,51 @@
-import 'package:simple_dart_web_views/views.dart';
-import 'package:simple_dart_web_widgets/widgets.dart';
+import 'package:simple_dart_web_views/view.dart';
+import 'package:simple_dart_web_widgets/fields/date_field.dart';
+import 'package:simple_dart_web_widgets/fields/date_time_field.dart';
+import 'package:simple_dart_web_widgets/fields/num_field.dart';
+import 'package:simple_dart_web_widgets/fields/text_area_field.dart';
+import 'package:simple_dart_web_widgets/fields/text_field.dart';
+import 'package:simple_dart_web_widgets/hv_panel.dart';
+import 'package:simple_dart_web_widgets/labels/simple_label.dart';
 
-class TextFieldsView extends View {
-  TextFieldsView() {
-    dartClassName('TextFieldsView');
+class FieldsView extends View {
+  FieldsView() {
     fullSize();
     fillContent();
-    setPadding(10);
-    vertical();
-    setSpaceBetweenItems(10);
+    padding = '10px';
+    vertical = true;
+    stride = '10px';
     addAll([
       HVPanel()
-        ..vertical()
+        ..vertical = true
         ..width = '300px'
-        ..addAll([SimpleLabel()..caption = 'Text field', TextField()]),
+        ..addAll([SimpleLabel()..caption = 'TextField', TextField()]),
       HVPanel()
-        ..vertical()
+        ..vertical = true
         ..width = '300px'
-        ..addAll([SimpleLabel()..caption = 'Text area field', TextAreaField()]),
+        ..addAll([SimpleLabel()..caption = 'TextAreaField', TextAreaField()]),
       HVPanel()
-        ..vertical()
+        ..vertical = true
         ..width = '300px'
-        ..addAll([SimpleLabel()..caption = 'Numeric field', NumField()]),
+        ..addAll([SimpleLabel()..caption = 'NumField', NumField()]),
       HVPanel()
-        ..vertical()
+        ..vertical = true
         ..width = '300px'
         ..addAll([
-          SimpleLabel()..caption = 'Date field',
+          SimpleLabel()..caption = 'DateField',
           DateField()..value = DateTime.now()
         ]),
       HVPanel()
-        ..vertical()
+        ..vertical = true
         ..width = '300px'
         ..addAll([
-          SimpleLabel()..caption = 'Date time field',
-          DateField()..showTime()..value = DateTime.now()
+          SimpleLabel()..caption = 'DateTimeField',
+          DateTimeField()..value = DateTime.now()
         ]),
     ]);
   }
 
   static const String id = 'text_fields';
-  static const String caption = 'Text fileds';
+  static const String caption = 'Fields';
 
   @override
   String getCaption() => caption;

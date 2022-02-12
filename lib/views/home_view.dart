@@ -1,11 +1,11 @@
-import 'package:simple_dart_web_views/views.dart';
-import 'package:simple_dart_web_widgets/widgets.dart';
+import 'package:simple_dart_web_views/view.dart';
+import 'package:simple_dart_web_widgets/labels/simple_label.dart';
 
 class HomeView extends View {
   HomeView() {
-    vertical();
-    setPadding(20);
-    setSpaceBetweenItems(10);
+    vertical = true;
+    padding = '20px';
+    stride = '10px';
     add(SimpleLabel()..caption = 'SDW showcase');
   }
 
@@ -17,11 +17,4 @@ class HomeView extends View {
 
   @override
   String getId() => '';
-
-  @override
-  Component getTitleComponent() => SimpleLink()
-    ..image = 'images/home_icon.svg'
-    ..width = '35px'
-    ..height = '35px'
-    ..href = '#';
 }

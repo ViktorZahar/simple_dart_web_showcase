@@ -1,17 +1,18 @@
-import 'package:simple_dart_web_views/views.dart';
-import 'package:simple_dart_web_widgets/widgets.dart';
+import 'package:simple_dart_web_views/view.dart';
+import 'package:simple_dart_web_widgets/fields/select_field.dart';
+import 'package:simple_dart_web_widgets/hv_panel.dart';
+import 'package:simple_dart_web_widgets/labels/simple_label.dart';
 
 class SelectFieldView extends View {
   SelectFieldView() {
-    dartClassName('SelectFieldView');
     fullSize();
     fillContent();
-    setPadding(10);
-    vertical();
-    setSpaceBetweenItems(10);
+    padding = '10px';
+    vertical = true;
+    stride = '10px';
     addAll([
       HVPanel()
-        ..vertical()
+        ..vertical = true
         ..width = '300px'
         ..addAll([
           SimpleLabel()..caption = 'Single',
@@ -20,7 +21,7 @@ class SelectFieldView extends View {
                 ['option1', 'option2', 'option3', 'option4', 'option5'])
         ]),
       HVPanel()
-        ..vertical()
+        ..vertical = true
         ..width = '300px'
         ..addAll([
           SimpleLabel()..caption = 'Singe disabled',
@@ -30,7 +31,7 @@ class SelectFieldView extends View {
             ..disabled = true
         ]),
       HVPanel()
-        ..vertical()
+        ..vertical = true
         ..width = '300px'
         ..addAll([
           SimpleLabel()..caption = 'Multi',
@@ -41,7 +42,7 @@ class SelectFieldView extends View {
                 ['option1', 'option2', 'option3', 'option4', 'option5'])
         ]),
       HVPanel()
-        ..vertical()
+        ..vertical = true
         ..width = '300px'
         ..addAll([
           SimpleLabel()..caption = 'Multi disabled',
@@ -56,7 +57,7 @@ class SelectFieldView extends View {
   }
 
   static const String id = 'select_field';
-  static const String caption = 'Select filed';
+  static const String caption = 'SelectFiled';
 
   @override
   String getCaption() => caption;

@@ -1,19 +1,20 @@
-import 'package:simple_dart_web_views/views.dart';
-import 'package:simple_dart_web_widgets/widgets.dart';
+import 'package:simple_dart_web_views/view.dart';
+import 'package:simple_dart_web_widgets/fields/radio_field.dart';
+import 'package:simple_dart_web_widgets/hv_panel.dart';
+import 'package:simple_dart_web_widgets/labels/simple_label.dart';
 
 class RadioButtonView extends View {
   RadioButtonView() {
-    dartClassName('RadioButtonView');
     fullSize();
     fillContent();
-    setPadding(10);
-    vertical();
-    setSpaceBetweenItems(10);
+    padding = '10px';
+    vertical = true;
+    stride = '10px';
     addAll([
       HVPanel()
-        ..vertical()
+        ..vertical = true
         ..width = '300px'
-        ..wrap()
+        ..wrap = true
         ..addAll([
           SimpleLabel()..caption = 'Row layout',
           RadioField()
@@ -24,12 +25,12 @@ class RadioButtonView extends View {
             ..addRadioButton('opt4', 'option4')
         ]),
       HVPanel()
-        ..vertical()
+        ..vertical = true
         ..width = '300px'
         ..addAll([
           SimpleLabel()..caption = 'Column layout',
           RadioField()
-            ..vertical()
+            ..vertical = true
             ..groupName = 'vertical'
             ..addRadioButton('opt1', 'option1')
             ..addRadioButton('opt2', 'option2')
@@ -37,12 +38,12 @@ class RadioButtonView extends View {
             ..addRadioButton('opt4', 'option4')
         ]),
       HVPanel()
-        ..vertical()
+        ..vertical = true
         ..width = '300px'
         ..addAll([
           SimpleLabel()..caption = 'Disabled',
           RadioField()
-            ..vertical()
+            ..vertical = true
             ..groupName = 'vertical'
             ..addRadioButton('opt1', 'option1')
             ..addRadioButton('opt2', 'option2')
@@ -54,7 +55,7 @@ class RadioButtonView extends View {
   }
 
   static const String id = 'radiobutton';
-  static const String caption = 'Radio button';
+  static const String caption = 'RadioField';
 
   @override
   String getCaption() => caption;
