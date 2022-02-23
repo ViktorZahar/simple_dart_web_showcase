@@ -8,6 +8,10 @@ body {
   font-weight: 500;
 }
 
+.SimpleLabel {
+  color: inherit;
+}
+
 .ExamplePanel {
     border: 1px solid black;
 }
