@@ -1,17 +1,19 @@
 import 'package:simple_dart_web_views/view.dart';
 import 'package:simple_dart_web_widgets/file_chooser.dart';
-import 'package:simple_dart_web_widgets/hv_panel.dart';
 import 'package:simple_dart_web_widgets/labels/simple_label.dart';
+import 'package:simple_dart_web_widgets/panel.dart';
 
 class FileChooserView extends View {
-  FileChooserView() {
+  FileChooserView() : super('FileChooserView') {
     vertical = true;
     fullSize();
-    fillContent();
+    fillContent = true;
     padding = '10px';
     stride = '10px';
+    id = 'file_chooser';
+    caption = 'FileChooser';
     addAll([
-      HVPanel()
+      Panel()
         ..vertical = true
         ..width = '300px'
         ..addAll([
@@ -20,13 +22,4 @@ class FileChooserView extends View {
         ])
     ]);
   }
-
-  static const String id = 'file_chooser';
-  static const String caption = 'FileChooser';
-
-  @override
-  String getCaption() => caption;
-
-  @override
-  String getId() => id;
 }

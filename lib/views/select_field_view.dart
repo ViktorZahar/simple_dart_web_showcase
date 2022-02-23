@@ -1,17 +1,19 @@
 import 'package:simple_dart_web_views/view.dart';
 import 'package:simple_dart_web_widgets/fields/select_field.dart';
-import 'package:simple_dart_web_widgets/hv_panel.dart';
 import 'package:simple_dart_web_widgets/labels/simple_label.dart';
+import 'package:simple_dart_web_widgets/panel.dart';
 
 class SelectFieldView extends View {
-  SelectFieldView() {
+  SelectFieldView() : super('SelectFieldView') {
+    id = 'select_field';
+    caption = 'SelectFiled';
     fullSize();
-    fillContent();
+    fillContent = true;
     padding = '10px';
     vertical = true;
     stride = '10px';
     addAll([
-      HVPanel()
+      Panel()
         ..vertical = true
         ..width = '300px'
         ..addAll([
@@ -20,7 +22,7 @@ class SelectFieldView extends View {
             ..initOptions(
                 ['option1', 'option2', 'option3', 'option4', 'option5'])
         ]),
-      HVPanel()
+      Panel()
         ..vertical = true
         ..width = '300px'
         ..addAll([
@@ -30,7 +32,7 @@ class SelectFieldView extends View {
                 ['option1', 'option2', 'option3', 'option4', 'option5'])
             ..disabled = true
         ]),
-      HVPanel()
+      Panel()
         ..vertical = true
         ..width = '300px'
         ..addAll([
@@ -41,7 +43,7 @@ class SelectFieldView extends View {
             ..initOptions(
                 ['option1', 'option2', 'option3', 'option4', 'option5'])
         ]),
-      HVPanel()
+      Panel()
         ..vertical = true
         ..width = '300px'
         ..addAll([
@@ -55,13 +57,4 @@ class SelectFieldView extends View {
         ])
     ]);
   }
-
-  static const String id = 'select_field';
-  static const String caption = 'SelectFiled';
-
-  @override
-  String getCaption() => caption;
-
-  @override
-  String getId() => id;
 }

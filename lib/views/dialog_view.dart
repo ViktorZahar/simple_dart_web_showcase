@@ -1,20 +1,21 @@
 import 'package:simple_dart_web_views/view.dart';
-import 'package:simple_dart_web_widgets/abstract_component.dart';
 import 'package:simple_dart_web_widgets/buttons.dart';
 import 'package:simple_dart_web_widgets/dialogs.dart';
 import 'package:simple_dart_web_widgets/fields/text_field.dart';
-import 'package:simple_dart_web_widgets/hv_panel.dart';
 import 'package:simple_dart_web_widgets/labels/simple_label.dart';
+import 'package:simple_dart_web_widgets/panel.dart';
 
 class DialogView extends View {
-  DialogView() {
+  DialogView() : super('DialogView') {
+    id = 'dialogs';
+    caption = 'Dialogs';
     fullSize();
-    fillContent();
+    fillContent = true;
     padding = '10px';
     vertical = true;
     stride = '10px';
     addAll([
-      HVPanel()
+      Panel()
         ..vertical = true
         ..width = '300px'
         ..stride = '10px'
@@ -22,42 +23,36 @@ class DialogView extends View {
           SimpleButton()
             ..caption = 'Open dialog'
             ..onClick.listen((event) {
-              final dialog = DialogExample();
-              dialog.showDialog();
+              dialogExample.showDialog();
             }),
         ]),
     ]);
   }
 
-  static const String id = 'dialogs';
-  static const String caption = 'Dialogs';
-
-  @override
-  String getCaption() => caption;
-
-  @override
-  String getId() => id;
+  DialogExample dialogExample = DialogExample();
 }
 
-class DialogExample extends DialogWindow<String> {
+class DialogExample extends AbstractDialog<String> {
   DialogExample() {
     onClose.listen((event) {
       completer!.complete(inputField.value);
     });
   }
 
-  @override
-  String caption() => 'DialogWindow';
-
   final inputField = TextField();
 
   @override
-  Component createDialogContent() {
-    final ret = HVPanel()
+  PanelComponent createDialogWindow() {
+    final ret = Panel()
+      ..addCssClass('DialogExample')
       ..vertical = true
       ..stride = '5px'
       ..padding = '5px'
-      ..addAll([SimpleLabel()..caption = 'Input value', inputField]);
+      ..addAll([
+        SimpleLabel()..caption = 'DialogExample',
+        SimpleLabel()..caption = 'Input value',
+        inputField
+      ]);
 
     return ret;
   }

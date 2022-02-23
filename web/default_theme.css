@@ -8,10 +8,14 @@ body {
   font-weight: 500;
 }
 
-.exampleHvPanel {
+.ExamplePanel {
     border: 1px solid black;
 }
 
-.HVPanelProps {
+.PanelProps {
     border: 1px solid black;
+}
+
+.DialogExample {
+ background:white;
 }

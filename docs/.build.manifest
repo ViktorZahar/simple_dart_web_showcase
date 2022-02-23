@@ -1,5 +1,7 @@
 .dart_tool/package_config.json
 .packages
+blue_theme.css
+default_theme.css
 images/home_icon.svg
 images/load_indicator.gif
 images/remove_icon.svg
@@ -20,7 +22,12 @@ packages/build_runner/src/server/graph_viz.html
 packages/build_runner/src/server/graph_viz.js
 packages/build_runner/src/server/graph_viz_main.dart.js
 packages/build_web_compilers/src/dev_compiler_stack_trace/stack_trace_mapper.dart.js
-packages/simple_dart_web_views/themes/default_theme.css
-packages/simple_dart_web_widgets/themes/JetBrainsMono-Regular.ttf
-packages/simple_dart_web_widgets/themes/default_theme.css
-styles.css
+packages/simple_dart_web_views/styles/blue_theme.css
+packages/simple_dart_web_views/styles/default_theme.css
+packages/simple_dart_web_widgets/images/home_icon.svg
+packages/simple_dart_web_widgets/images/load_indicator.gif
+packages/simple_dart_web_widgets/images/remove_icon.svg
+packages/simple_dart_web_widgets/styles/blue_theme.css
+packages/simple_dart_web_widgets/styles/default_theme.css
+packages/simple_dart_web_widgets/styles/system_style.css
+system_style.css

@@ -1,17 +1,19 @@
 import 'package:simple_dart_web_views/view.dart';
 import 'package:simple_dart_web_widgets/fields/radio_field.dart';
-import 'package:simple_dart_web_widgets/hv_panel.dart';
 import 'package:simple_dart_web_widgets/labels/simple_label.dart';
+import 'package:simple_dart_web_widgets/panel.dart';
 
 class RadioButtonView extends View {
-  RadioButtonView() {
+  RadioButtonView() : super('RadioButtonView') {
+    id = 'radiobutton';
+    caption = 'RadioField';
     fullSize();
-    fillContent();
+    fillContent = true;
     padding = '10px';
     vertical = true;
     stride = '10px';
     addAll([
-      HVPanel()
+      Panel()
         ..vertical = true
         ..width = '300px'
         ..wrap = true
@@ -24,7 +26,7 @@ class RadioButtonView extends View {
             ..addRadioButton('opt3', 'option3')
             ..addRadioButton('opt4', 'option4')
         ]),
-      HVPanel()
+      Panel()
         ..vertical = true
         ..width = '300px'
         ..addAll([
@@ -37,7 +39,7 @@ class RadioButtonView extends View {
             ..addRadioButton('opt3', 'option3')
             ..addRadioButton('opt4', 'option4')
         ]),
-      HVPanel()
+      Panel()
         ..vertical = true
         ..width = '300px'
         ..addAll([
@@ -53,13 +55,4 @@ class RadioButtonView extends View {
         ])
     ]);
   }
-
-  static const String id = 'radiobutton';
-  static const String caption = 'RadioField';
-
-  @override
-  String getCaption() => caption;
-
-  @override
-  String getId() => id;
 }

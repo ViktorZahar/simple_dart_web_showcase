@@ -2,9 +2,11 @@ import 'package:simple_dart_web_views/view.dart';
 import 'package:simple_dart_web_widgets/fields/checkbox_field.dart';
 
 class CheckboxView extends View {
-  CheckboxView() {
+  CheckboxView() : super('CheckboxView') {
+    id = 'checkbox';
+    caption = 'CheckboxField';
     fullSize();
-    fillContent();
+    fillContent = true;
     padding = '1px';
     stride = '1px';
     vertical = true;
@@ -18,13 +20,4 @@ class CheckboxView extends View {
         ..disabled = true,
     ]);
   }
-
-  static const String id = 'checkbox';
-  static const String caption = 'CheckboxField';
-
-  @override
-  String getCaption() => caption;
-
-  @override
-  String getId() => id;
 }

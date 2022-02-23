@@ -11,13 +11,8 @@ environment:
   sdk: '^2.16.0'
 
 dependencies:
-  simple_dart_web_views:
-#    git: https://github.com/ViktorZahar/simple_dart_web_views.git
-    path: ../simple_dart_web_views
-
-  simple_dart_web_widgets:
-#    git: https://github.com/ViktorZahar/simple_dart_web_widgets.git
-    path: ../simple_dart_web_widgets
+  simple_dart_web_views: '0.0.3'
+  simple_dart_web_widgets: '0.0.3'
 
 dev_dependencies:
   build_runner: ^2.1.7

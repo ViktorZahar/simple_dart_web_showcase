@@ -1,0 +1,21 @@
+@import "packages/simple_dart_web_widgets/styles/system_style.css";
+@import "packages/simple_dart_web_widgets/styles/default_theme.css";
+@import "packages/simple_dart_web_views/styles/default_theme.css";
+
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.ExamplePanel {
+    border: 1px solid black;
+}
+
+.PanelProps {
+    border: 1px solid black;
+}
+
+.DialogExample {
+ background:white;
+}

@@ -1,17 +1,19 @@
 import 'package:simple_dart_web_views/view.dart';
 import 'package:simple_dart_web_widgets/fields/list_field.dart';
-import 'package:simple_dart_web_widgets/hv_panel.dart';
 import 'package:simple_dart_web_widgets/labels/simple_label.dart';
+import 'package:simple_dart_web_widgets/panel.dart';
 
 class ListFieldView extends View {
-  ListFieldView() {
+  ListFieldView() : super('ListFieldView') {
+    id = 'list_field';
+    caption = 'ListFiled';
     fullSize();
-    fillContent();
+    fillContent = true;
     padding = '10px';
     vertical = true;
     stride = '10px';
     addAll([
-      HVPanel()
+      Panel()
         ..vertical = true
         ..stride = '5px'
         ..width = '300px'
@@ -26,7 +28,7 @@ class ListFieldView extends View {
               'Option 5'
             ]
         ]),
-      HVPanel()
+      Panel()
         ..vertical = true
         ..stride = '5px'
         ..width = '300px'
@@ -44,13 +46,4 @@ class ListFieldView extends View {
         ]),
     ]);
   }
-
-  static const String id = 'list_field';
-  static const String caption = 'ListFiled';
-
-  @override
-  String getCaption() => caption;
-
-  @override
-  String getId() => id;
 }
