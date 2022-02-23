@@ -8,7 +8,7 @@ body {
   font-weight: 500;
 }
 
-.SimpleLabel {
+.SimplePathPanel > .SimpleLabel {
   color: inherit;
 }
 

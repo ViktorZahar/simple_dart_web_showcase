@@ -2934,6 +2934,7 @@ q=t.i
 p=new A.dc(A.L(a2,a2),a4,A.a([],q),"HomeView")
 p.u(A.h("HomeView","className"))
 p.G("HomeView")
+p.db="home"
 p.dx="Home"
 p.sm(!0)
 a4=a4.style
