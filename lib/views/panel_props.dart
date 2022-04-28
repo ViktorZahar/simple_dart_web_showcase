@@ -7,13 +7,14 @@ import 'package:simple_dart_web_widgets/utils.dart';
 
 import '../showcase_app.dart';
 
-class HVPanelProps extends PanelComponent {
-  HVPanelProps(this.target) : super('PanelComponent') {
+class PanelProps extends PanelComponent {
+  PanelProps(this.target) : super('PanelComponent') {
     vertical = true;
     wrap = true;
     align = 'flex-start';
     stride = '6px';
     padding = '10px';
+
     addAll([
       SimpleLabel()..caption = 'Properties',
       chbVertical,
@@ -22,6 +23,9 @@ class HVPanelProps extends PanelComponent {
       chbFillContent,
       chbLoadIndicator,
       labelComponent('align', cmbAlign),
+      labelComponent('justifyContent', cmbJustifyContent),
+      labelComponent('width', txtWidth),
+      labelComponent('height', txtHeight),
       labelComponent('padding', txtPadding),
       labelComponent('stride', txtStride),
     ]);
@@ -66,6 +70,24 @@ class HVPanelProps extends PanelComponent {
         target.align = event.newValue.first;
       });
 
+    cmbJustifyContent
+      ..value = [target.justifyContent]
+      ..onValueChange.listen((event) {
+        target.justifyContent = event.newValue.first;
+      });
+
+    txtWidth
+      ..value = target.width
+      ..onValueChange.listen((event) {
+        target.width = event.newValue;
+      });
+
+    txtHeight
+      ..value = target.height
+      ..onValueChange.listen((event) {
+        target.height = event.newValue;
+      });
+
     txtPadding
       ..value = target.padding
       ..onValueChange.listen((event) {
@@ -88,6 +110,10 @@ class HVPanelProps extends PanelComponent {
   CheckboxField chbLoadIndicator = CheckboxField()..caption = 'loadIndicator';
   SelectField cmbAlign = SelectField()
     ..initOptions(['stretch', 'center', 'flex-start', 'flex-end']);
+  SelectField cmbJustifyContent = SelectField()
+    ..initOptions(['stretch', 'center', 'flex-start', 'flex-end']);
+  TextField txtWidth = TextField();
+  TextField txtHeight = TextField();
   TextField txtPadding = TextField();
   TextField txtStride = TextField();
 }

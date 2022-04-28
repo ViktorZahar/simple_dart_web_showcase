@@ -32,28 +32,18 @@ class DialogView extends View {
   DialogExample dialogExample = DialogExample();
 }
 
-class DialogExample extends AbstractDialog<String> {
-  DialogExample() {
+class DialogExample extends SimpleDialogLayout<String> {
+  DialogExample() : super() {
+    stride = '5px';
+    caption = 'DialogExample';
+    bodyPanel
+      ..stride = '3px'
+      ..addAll([SimpleLabel()..caption = 'Input value', inputField]);
+
     onClose.listen((event) {
-      completer!.complete(inputField.value);
+      completer.complete(inputField.value);
     });
   }
 
   final inputField = TextField();
-
-  @override
-  PanelComponent createDialogWindow() {
-    final ret = Panel()
-      ..addCssClass('DialogExample')
-      ..vertical = true
-      ..stride = '5px'
-      ..padding = '5px'
-      ..addAll([
-        SimpleLabel()..caption = 'DialogExample',
-        SimpleLabel()..caption = 'Input value',
-        inputField
-      ]);
-
-    return ret;
-  }
 }

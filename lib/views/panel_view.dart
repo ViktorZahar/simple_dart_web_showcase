@@ -20,7 +20,7 @@ class PanelView extends View {
       SimpleButton()..caption = 'item4',
       SimpleButton()..caption = 'item5',
     ]);
-    hvPanelProps = HVPanelProps(examplePanel)..width = '200px';
+    panelProps = PanelProps(examplePanel)..width = '250px';
     addAll([
       Panel()
         ..vertical = true
@@ -29,15 +29,15 @@ class PanelView extends View {
         ..padding = '10px'
         ..stride = '5px'
         ..add(examplePanel),
-      hvPanelProps,
+      panelProps,
     ]);
   }
 
   Panel examplePanel = Panel()
     ..addCssClass('ExamplePanel')
     ..vertical = true
-    ..width = '50%'
-    ..height = '80%';
+    ..width = '300px'
+    ..height = '200px';
 
-  late HVPanelProps hvPanelProps;
+  late PanelProps panelProps;
 }

@@ -7,7 +7,7 @@ import '../showcase_app.dart';
 
 class MessagesView extends View {
   MessagesView() : super('MessagesView') {
-    id = '#messages';
+    id = 'messages';
     caption = 'Messages';
     fullSize();
     fillContent = true;

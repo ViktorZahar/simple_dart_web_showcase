@@ -3,10 +3,10 @@ import 'package:simple_dart_web_widgets/panel.dart';
 import 'package:simple_dart_web_widgets/tables/simple_table.dart';
 import 'package:simple_dart_web_widgets/tables/table_with_header_copy.dart';
 
-class TablesView extends View {
-  TablesView() : super('TablesView') {
-    id = 'tables';
-    caption = 'Tables';
+class SimpleTableView extends View {
+  SimpleTableView() : super('SimpleTableView') {
+    id = 'simple_table';
+    caption = 'SimpleTable';
     fullSize();
     fillContent=true;
     padding = '10px';
