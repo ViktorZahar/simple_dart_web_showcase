@@ -9,6 +9,7 @@ import 'views/child_view.dart';
 import 'views/context_menu_view.dart';
 import 'views/dialog_view.dart';
 import 'views/file_chooser_view.dart';
+import 'views/form_panel_view.dart';
 import 'views/home_view.dart';
 import 'views/list_field_view.dart';
 import 'views/messages_view.dart';
@@ -26,23 +27,26 @@ MainWindowWithNavPathTheme mainWindow = MainWindowWithNavPathTheme();
 void start() {
   final homeView = HomeView();
   mainWindow
-    ..registerView(homeView)
-    ..registerView(PanelView())
-    ..registerView(CheckboxView())
-    ..registerView(SelectFieldView())
-    ..registerView(RadioButtonView())
-    ..registerView(ListFieldView())
-    ..registerView(FieldsView())
-    ..registerView(ButtonsView())
-    ..registerView(ContextMenuView())
-    ..registerView(FileChooserView())
-    ..registerView(TabPanelView())
-    ..registerView(MessagesView())
-    ..registerView(DialogView())
-    ..registerView(SimpleTableView())
-    ..registerView(ObjectTableView())
-    ..registerView(RepositoryTableView())
-    ..registerView(ParentView())
-    ..registerView(ChildView())
-    ..init(homeView);
+    .registerViews([
+      homeView,
+      PanelView(),
+      FormPanelView(),
+      CheckboxView(),
+      SelectFieldView(),
+      RadioButtonView(),
+      ListFieldView(),
+      FieldsView(),
+      ButtonsView(),
+      ContextMenuView(),
+      FileChooserView(),
+      TabPanelView(),
+      MessagesView(),
+      DialogView(),
+      SimpleTableView(),
+      ObjectTableView(),
+      RepositoryTableView(),
+      ParentView(),
+      ChildView()
+    ]);
+  mainWindow.init(homeView);
 }

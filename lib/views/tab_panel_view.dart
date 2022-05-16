@@ -1,4 +1,5 @@
 import 'package:simple_dart_web_views/view.dart';
+import 'package:simple_dart_web_widgets/abstract_component.dart';
 import 'package:simple_dart_web_widgets/labels/simple_label.dart';
 import 'package:simple_dart_web_widgets/panel.dart';
 import 'package:simple_dart_web_widgets/tab_panel.dart';
@@ -40,7 +41,20 @@ class TabPanelView extends View {
             ..vertical = true
             ..fullSize()
             ..fillContent = true)
+      ..addLazyTab('LazyTab', LazyTabComponentExample())
       ..currentTag = tag1;
     addAll([tabPanel]);
+  }
+}
+
+class LazyTabComponentExample extends LazyTabComponent {
+  LazyTabComponentExample() : super() {
+    padding = '5px';
+  }
+
+  @override
+  Future<void> onShow() async {
+    clear();
+    add(SimpleLabel()..caption = 'LazyTab content');
   }
 }

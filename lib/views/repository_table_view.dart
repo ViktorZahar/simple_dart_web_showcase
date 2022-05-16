@@ -2,8 +2,6 @@ import 'package:simple_dart_web_views/view.dart';
 import 'package:simple_dart_web_widgets/panel.dart';
 import 'package:simple_dart_web_widgets/tables/repository.dart';
 import 'package:simple_dart_web_widgets/tables/repository_table.dart';
-import 'package:simple_dart_web_widgets/tables/simple_table.dart';
-import 'package:simple_dart_web_widgets/tables/table_with_header_copy.dart';
 
 class RepositoryTableView extends View {
   RepositoryTableView() : super('RepositoryTableView') {
@@ -16,7 +14,7 @@ class RepositoryTableView extends View {
     fillContent = true;
     fullSize();
     stride = '10px';
-    final exampleRepositoryTable = ExampleRepositoryTable();
+    final exampleRepositoryTable = ExampleRepositoryTable()..loadMore();
     addAll([
       Panel()
         ..fillContent = true
@@ -40,6 +38,7 @@ class ExampleRepository extends Repository<ExampleRepositoryObject> {
   @override
   Future<List<ExampleRepositoryObject>> loadMore() async {
     var lastId = 0;
+    totalCount = 10000000000;
     final parsedAfter = int.tryParse(lastKey);
     if (parsedAfter != null) {
       lastId = parsedAfter;
@@ -56,9 +55,6 @@ class ExampleRepository extends Repository<ExampleRepositoryObject> {
     }
     return ret;
   }
-
-  @override
-  int get totalCount => 10000000000;
 }
 
 List<dynamic> exampleObjectRowAdapter(ExampleRepositoryObject object) => [
@@ -77,7 +73,8 @@ class ExampleRepositoryTable extends RepositoryTable<ExampleRepositoryObject> {
     createColumn('column2', 100);
     createColumn('column3', 100);
     onLoadMore.listen((event) {
-      headerLabel.caption= 'Loaded: ${exampleRepository.loadedCount}/${exampleRepository.totalCount}';
+      headerLabel.caption =
+          'Loaded: ${exampleRepository.loadedCount}/${exampleRepository.totalCount}';
     });
   }
 }
