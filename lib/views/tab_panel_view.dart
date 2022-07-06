@@ -1,5 +1,5 @@
 import 'package:simple_dart_web_views/view.dart';
-import 'package:simple_dart_web_widgets/abstract_component.dart';
+import 'package:simple_dart_web_widgets/headed_panel.dart';
 import 'package:simple_dart_web_widgets/labels/simple_label.dart';
 import 'package:simple_dart_web_widgets/panel.dart';
 import 'package:simple_dart_web_widgets/tab_panel.dart';
@@ -43,8 +43,12 @@ class TabPanelView extends View {
             ..fillContent = true)
       ..addLazyTab('LazyTab', LazyTabComponentExample())
       ..currentTag = tag1;
-    addAll([tabPanel]);
+    headedPanel.contentPanel.add(tabPanel);
+    add(headedPanel);
   }
+
+  HeadedPanel headedPanel = HeadedPanel()
+    ..fullSize();
 }
 
 class LazyTabComponentExample extends LazyTabComponent {

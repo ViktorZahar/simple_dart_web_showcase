@@ -11,8 +11,6 @@ class PanelView extends View {
     fullSize();
     fillContent = true;
     align = 'flex-start';
-    padding = '10px';
-    stride = '1px';
     examplePanel.addAll([
       SimpleButton()..caption = 'item1',
       SimpleButton()..caption = 'item2',

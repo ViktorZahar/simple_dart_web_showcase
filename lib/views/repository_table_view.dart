@@ -1,4 +1,5 @@
 import 'package:simple_dart_web_views/view.dart';
+import 'package:simple_dart_web_widgets/headed_panel.dart';
 import 'package:simple_dart_web_widgets/panel.dart';
 import 'package:simple_dart_web_widgets/tables/repository.dart';
 import 'package:simple_dart_web_widgets/tables/repository_table.dart';
@@ -16,12 +17,11 @@ class RepositoryTableView extends View {
     stride = '10px';
     final exampleRepositoryTable = ExampleRepositoryTable()..loadMore();
     addAll([
-      Panel()
-        ..fillContent = true
+      HeadedPanel()
         ..fullSize()
         ..vertical = true
         ..stride = '5px'
-        ..addAll([exampleRepositoryTable]),
+        ..contentPanel.addAll([exampleRepositoryTable]),
     ]);
   }
 }

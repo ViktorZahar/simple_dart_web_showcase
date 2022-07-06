@@ -1,34 +1,32 @@
 import 'package:simple_dart_web_widgets/fields/checkbox_field.dart';
 import 'package:simple_dart_web_widgets/fields/select_field.dart';
 import 'package:simple_dart_web_widgets/fields/text_field.dart';
-import 'package:simple_dart_web_widgets/labels/simple_label.dart';
+import 'package:simple_dart_web_widgets/headed_panel.dart';
 import 'package:simple_dart_web_widgets/panel.dart';
 import 'package:simple_dart_web_widgets/utils.dart';
 
 import '../showcase_app.dart';
 
-class PanelProps extends PanelComponent {
-  PanelProps(this.target) : super('PanelComponent') {
-    vertical = true;
-    wrap = true;
-    align = 'flex-start';
-    stride = '6px';
-    padding = '10px';
-
-    addAll([
-      SimpleLabel()..caption = 'Properties',
-      chbVertical,
-      chbWrap,
-      chbScrollable,
-      chbFillContent,
-      chbLoadIndicator,
-      labelComponent('align', cmbAlign),
-      labelComponent('justifyContent', cmbJustifyContent),
-      labelComponent('width', txtWidth),
-      labelComponent('height', txtHeight),
-      labelComponent('padding', txtPadding),
-      labelComponent('stride', txtStride),
-    ]);
+class PanelProps extends HeadedPanel {
+  PanelProps(this.target) {
+    caption = 'Properties';
+    contentPanel
+      ..wrap = true
+      ..align = 'flex-start'
+      ..stride = '6px'
+      ..addAll([
+        chbVertical,
+        chbWrap,
+        chbScrollable,
+        chbFillContent,
+        chbLoadIndicator,
+        labelComponent('align', cmbAlign),
+        labelComponent('justifyContent', cmbJustifyContent),
+        labelComponent('width', txtWidth),
+        labelComponent('height', txtHeight),
+        labelComponent('padding', txtPadding),
+        labelComponent('stride', txtStride),
+      ]);
 
     chbVertical
       ..value = target.vertical

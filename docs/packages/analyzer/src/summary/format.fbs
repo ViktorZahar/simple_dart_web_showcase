@@ -68,6 +68,12 @@ enum IndexRelationKind : byte {
   /// Right: location.
   IS_INVOKED_BY,
 
+  /// Left: an unnamed constructor.
+  ///   Is invoked by an enum constant, without arguments, which is special
+  ///   because when the name given, an empty argument list must be added.
+  /// Right: location.
+  IS_INVOKED_BY_ENUM_CONSTANT_WITHOUT_ARGUMENTS,
+
   /// Left: any element.
   ///   Is referenced (and not invoked, read/written) at.
   /// Right: location.
@@ -397,10 +403,7 @@ table AvailableFileExportCombinator {
 
 /// Errors for a single unit.
 table CiderUnitErrors {
-  errors:[AnalysisDriverUnitError] (id: 1);
-
-  /// The hash signature of this data.
-  signature:[uint] (id: 0);
+  errors:[AnalysisDriverUnitError] (id: 0);
 }
 
 table DiagnosticMessage {
@@ -430,12 +433,6 @@ table DirectiveInfo {
   templateValues:[string] (id: 1);
 }
 
-/// Summary information about a package.
-table PackageBundle {
-  /// The version 2 of the summary.
-  fake:uint (id: 0);
-}
+root_type AnalysisDriverResolvedUnit;
 
-root_type PackageBundle;
-
-file_identifier "PBdl";
+file_identifier "ADRU";

@@ -1,4 +1,5 @@
 import 'package:simple_dart_web_views/view.dart';
+import 'package:simple_dart_web_widgets/headed_panel.dart';
 import 'package:simple_dart_web_widgets/panel.dart';
 import 'package:simple_dart_web_widgets/tables/object_table.dart';
 
@@ -15,12 +16,10 @@ class ObjectTableView extends View {
     stride = '10px';
     final objectTable = createObject();
     addAll([
-      Panel()
+      HeadedPanel()
         ..fillContent = true
         ..fullSize()
-        ..vertical = true
-        ..stride = '5px'
-        ..addAll([objectTable]),
+        ..contentPanel.addAll([objectTable]),
     ]);
   }
 

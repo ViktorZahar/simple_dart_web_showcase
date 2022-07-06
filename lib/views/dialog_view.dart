@@ -2,8 +2,8 @@ import 'package:simple_dart_web_views/view.dart';
 import 'package:simple_dart_web_widgets/buttons.dart';
 import 'package:simple_dart_web_widgets/dialogs.dart';
 import 'package:simple_dart_web_widgets/fields/text_field.dart';
+import 'package:simple_dart_web_widgets/headed_panel.dart';
 import 'package:simple_dart_web_widgets/labels/simple_label.dart';
-import 'package:simple_dart_web_widgets/panel.dart';
 
 class DialogView extends View {
   DialogView() : super('DialogView') {
@@ -15,17 +15,14 @@ class DialogView extends View {
     vertical = true;
     stride = '10px';
     addAll([
-      Panel()
-        ..vertical = true
-        ..width = '300px'
-        ..stride = '10px'
-        ..addAll([
-          SimpleButton()
-            ..caption = 'Open dialog'
-            ..onClick.listen((event) {
-              dialogExample.showDialog();
-            }),
-        ]),
+      HeadedPanel.withCaption('Dialog example', [
+        SimpleButton()
+          ..caption = 'Open dialog'
+          ..onClick.listen((event) {
+            dialogExample.showDialog();
+          }),
+      ])
+        ..width = '300px',
     ]);
   }
 
@@ -37,7 +34,7 @@ class DialogExample extends SimpleDialogLayout<String> {
     stride = '5px';
     caption = 'DialogExample';
     bodyPanel
-      ..stride = '3px'
+      ..stride = '5px'
       ..addAll([SimpleLabel()..caption = 'Input value', inputField]);
 
     onClose.listen((event) {

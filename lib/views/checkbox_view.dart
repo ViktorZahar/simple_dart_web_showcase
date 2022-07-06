@@ -1,5 +1,6 @@
 import 'package:simple_dart_web_views/view.dart';
 import 'package:simple_dart_web_widgets/fields/checkbox_field.dart';
+import 'package:simple_dart_web_widgets/headed_panel.dart';
 
 class CheckboxView extends View {
   CheckboxView() : super('CheckboxView') {
@@ -7,10 +8,8 @@ class CheckboxView extends View {
     caption = 'CheckboxField';
     fullSize();
     fillContent = true;
-    padding = '1px';
-    stride = '1px';
     vertical = true;
-    addAll([
+    add(HeadedPanel.withCaption('Checkbox fields', [
       CheckboxField()
         ..caption = 'Option 1'
         ..value = true,
@@ -18,6 +17,7 @@ class CheckboxView extends View {
       CheckboxField()
         ..caption = 'Disabled'
         ..disabled = true,
-    ]);
+    ])
+      ..width = '300px');
   }
 }
